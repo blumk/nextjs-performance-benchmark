@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import ProfilePicture from "./profile-picture/profile-picture";
 
 const name = "Ken Blum";
 export const siteTitle = "Next.js Sample Website";
@@ -27,22 +28,14 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <img
-              src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
+            <ProfilePicture home={home} name={name}></ProfilePicture>
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
+                <ProfilePicture home={home} name={name}></ProfilePicture>
               </a>
             </Link>
             <h2 className={utilStyles.headingLg}>
